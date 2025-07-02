@@ -1,43 +1,80 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
-    background-color: #f4f4f9;
+    padding: 0;
+    background-color: #f9f9f9;
     color: #333;
 }
 
 header {
-    text-align: center;
-    padding: 20px 0;
-    background: #4CAF50;
+    background: #4a6fa5;
     color: white;
-    margin-bottom: 20px;
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+nav {
+    background: #333;
+    padding: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #4a6fa5;
 }
 
 main {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 1rem;
 }
 
-button {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
+section {
+    margin-bottom: 2rem;
 }
 
-button:hover {
-    background: #45a049;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+}
+
+th {
+    background: #f4f4f4;
 }
 
 footer {
     text-align: center;
-    margin-top: 20px;
-    padding: 10px;
+    padding: 1rem;
     background: #333;
     color: white;
+    margin-top: 2rem;
 }
