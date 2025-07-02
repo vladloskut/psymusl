@@ -1,80 +1,227 @@
+/* Базовые настройки */
+:root {
+    --primary: #8E9AAF;
+    --secondary: #CBC0D3;
+    --accent: #EFD3D7;
+    --text: #2B2D42;
+    --light: #F8F9FA;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+    font-family: 'Manrope', sans-serif;
+    color: var(--text);
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    overflow-x: hidden;
+    background-color: var(--light);
 }
 
-header {
-    background: #4a6fa5;
-    color: white;
+/* Абстрактный размытый фон */
+.background-blur {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    background: linear-gradient(45deg, var(--secondary) 0%, var(--accent) 100%);
+    opacity: 0.15;
+    filter: blur(80px);
+    z-index: -1;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+}
+
+/* Шапка */
+.profile {
     text-align: center;
-    padding: 2rem 0;
-    margin-bottom: 2rem;
+    margin-bottom: 60px;
 }
 
-nav {
-    background: #333;
-    padding: 1rem 0;
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
 }
 
+h1 {
+    font-family: 'Prata', serif;
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--text);
+}
+
+.subtitle {
+    color: var(--primary);
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+/* Навигация */
 nav ul {
-    list-style: none;
     display: flex;
     justify-content: center;
-    margin: 0;
+    gap: 30px;
     padding: 0;
+    list-style: none;
+    margin-bottom: 50px;
 }
 
-nav ul li {
-    margin: 0 1rem;
-}
-
-nav ul li a {
-    color: white;
+.nav-link {
     text-decoration: none;
-    font-weight: bold;
+    color: var(--text);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
 }
 
-nav ul li a:hover {
-    color: #4a6fa5;
+.nav-link:hover {
+    color: var(--primary);
 }
 
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 1rem;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s;
 }
 
-section {
-    margin-bottom: 2rem;
-}
-
-table {
+.nav-link:hover::after {
     width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
 }
 
-table, th, td {
-    border: 1px solid #ddd;
+/* Контент */
+section {
+    margin-bottom: 80px;
 }
 
-th, td {
-    padding: 0.75rem;
-    text-align: left;
+h2 {
+    font-family: 'Prata', serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-th {
-    background: #f4f4f4;
+.signature {
+    font-family: 'Prata', serif;
+    margin-top: 30px;
+    opacity: 0.7;
 }
 
+/* Карточки */
+.cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    color: var(--primary);
+    margin-top: 0;
+}
+
+.card p {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.card ul {
+    padding-left: 20px;
+}
+
+.card li {
+    margin-bottom: 8px;
+}
+
+/* Подвал */
 footer {
     text-align: center;
-    padding: 1rem;
-    background: #333;
-    color: white;
-    margin-top: 2rem;
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contact-link {
+    display: block;
+    margin: 10px 0;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-link:hover {
+    color: var(--primary);
+}
+
+.social {
+    margin-top: 20px;
+}
+
+.social img {
+    width: 24px;
+    margin: 0 10px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.social img:hover {
+    opacity: 1;
+}
+
+/* Анимации */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .card {
+        width: 100%;
+    }
 }
